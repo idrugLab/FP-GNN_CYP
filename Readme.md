@@ -144,6 +144,7 @@ For example, to predict new molecules (in *test.csv*) with trained single-task C
 `python predict.py  --predict_path test.csv  --model_path model_save/CYP_single-task/singletask_cyp1a2.pt  --result_path result_CYP1a2.csv`
 
 The result file only contains the prediction of CYP_1a2. 
+
 E.g.
 
 Smiles|labels
@@ -161,6 +162,7 @@ For example, to predict new molecules (in *test.csv*) with trained multi-tasks m
 `python predict.py  --predict_path test.csv  --model_path model_save/CYP_multi-tasks/multitask_model.pt  --result_path result_CYP.csv`
 
 The result file contains the prediction of five CYP subtypes. 
+
 E.g.
 
 Smiles|1a2|2c9|2c19|2d6|3a4
