@@ -122,45 +122,53 @@ FC1=CNC(=O)NC1=O
 ---
 # **CYP**
 ## 1. Data
-CYP dataset comes from article *<[iCYP-MFE: Identifying Human Cytochrome P450 Inhibitors Using Multitask Learning and Molecular Fingerprint-Embedded Encoding](https://pubs.acs.org/doi/10.1021/acs.jcim.1c00628)>*
+CYP dataset comes from the article *<[iCYP-MFE: Identifying Human Cytochrome P450 Inhibitors Using Multitask Learning and Molecular Fingerprint-Embedded Encoding](https://pubs.acs.org/doi/10.1021/acs.jcim.1c00628)>*
 
 #### 1.1 Single Task
-Data files of single-task are in *<data/CYP_single-task/>*
+Data files of single-task are in *data/CYP_single-task/*
 
 #### 1.2 Multi Tasks
-Data files of multi-tasks are in *<data/CYP_multi-tasks/>*
+Data files of multi-tasks are in *data/CYP_multi-tasks/*
 
 ## 2. Model
 #### 2.1 Single Task
-The best trained single-task models are in *<model_save/CYP_single-task/>*
+The best trained single-task models are in *model_save/CYP_single-task/*
 
 #### 2.2 Multi Tasks
-The best trained multi-tasks model is in *<model_save/CYP_multi-tasks/>*
+The best trained multi-tasks model is in *model_save/CYP_multi-tasks/*
 
 ## 3. Prediction with trained models
 #### 3.1 Single Task
 For example, to predict new molecules (in *test.csv*) with trained single-task CYP-1a2 model, use the command:
+
 `python predict.py  --predict_path test.csv  --model_path model_save/CYP_single-task/singletask_cyp1a2.pt  --result_path result_CYP1a2.csv`
-The result file only contains the prediction of CYP_1a2. E.g.
+
+The result file only contains the prediction of CYP_1a2. 
+E.g.
+
 Smiles|labels
-:-:|:-:|:-:
-NC(Cn1ccc(=O)n(Cc2ccccc2C(=O)O)c1=O)C(=O)O|0.0008448198204860091
-c1ccc(CCc2cccnc2)nc1|0.4285607933998108
-CCOC(=O)Cn1nc(C)n(-c2ccc(C)cc2)c1=O|0.20116816461086273
-Cc1cc(O)c2c(c1)C(=O)c1cc(O)cc(O)c1C2=O|0.9857478737831116
-CN(C(=O)C(Cl)Cl)c1ccc(OC(=O)c2ccco2)cc1|0.9518516063690186
-Cc1n[nH]c(C)c1N=Nc1cc(Cl)ccc1Cl|0.9686630964279175
+:-:|:-:
+NC(Cn1ccc(=O)n(Cc2ccccc2C(=O)O)c1=O)C(=O)O|0.001
+c1ccc(CCc2cccnc2)nc1|0.429
+CCOC(=O)Cn1nc(C)n(-c2ccc(C)cc2)c1=O|0.201
+Cc1cc(O)c2c(c1)C(=O)c1cc(O)cc(O)c1C2=O|0.986
+CN(C(=O)C(Cl)Cl)c1ccc(OC(=O)c2ccco2)cc1|0.952
+Cc1n[nH]c(C)c1N=Nc1cc(Cl)ccc1Cl|0.969
 
 #### 3.2 Multi Tasks
 For example, to predict new molecules (in *test.csv*) with trained multi-tasks model, use the command:
+
 `python predict.py  --predict_path test.csv  --model_path model_save/CYP_multi-tasks/multitask_model.pt  --result_path result_CYP.csv`
-The result file contains the prediction of five CYP subtypes. E.g.
+
+The result file contains the prediction of five CYP subtypes. 
+E.g.
+
 Smiles|1a2|2c9|2c19|2d6|3a4
 :-:|:-:|:-:|:-:|:-:|:-:
-NC(Cn1ccc(=O)n(Cc2ccccc2C(=O)O)c1=O)C(=O)O|0.0029923394322395325|0.012909792363643646|0.010715223848819733|0.014555497094988823|0.0006137789459899068
-c1ccc(CCc2cccnc2)nc1|0.10426828265190125|0.03495674952864647|0.19115062057971954|0.055862411856651306|0.014222786761820316
-CCOC(=O)Cn1nc(C)n(-c2ccc(C)cc2)c1=O|0.030616765841841698|0.01593831740319729|0.11343128234148026|0.0012947379145771265|0.00494389096274972
-Cc1cc(O)c2c(c1)C(=O)c1cc(O)cc(O)c1C2=O|0.9989868998527527|0.9270832538604736|0.849529504776001|0.48023781180381775|0.866969883441925
-CN(C(=O)C(Cl)Cl)c1ccc(OC(=O)c2ccco2)cc1|0.9830098748207092|0.09900782257318497|0.7728306651115417|0.00026804395020008087|0.00951392576098442
-Cc1n[nH]c(C)c1N=Nc1cc(Cl)ccc1Cl|0.9980672001838684|0.04949260130524635|0.7717867493629456|0.005170329939574003|0.036462053656578064
+NC(Cn1ccc(=O)n(Cc2ccccc2C(=O)O)c1=O)C(=O)O|0.003|0.013|0.011|0.016|0.001
+c1ccc(CCc2cccnc2)nc1|0.104|0.035|0.191|0.056|0.014
+CCOC(=O)Cn1nc(C)n(-c2ccc(C)cc2)c1=O|0.031|0.016|0.113|0.001|0.005
+Cc1cc(O)c2c(c1)C(=O)c1cc(O)cc(O)c1C2=O|0.999|0.927|0.850|0.480|0.867
+CN(C(=O)C(Cl)Cl)c1ccc(OC(=O)c2ccco2)cc1|0.983|0.099|0.773|0.000|0.010
+Cc1n[nH]c(C)c1N=Nc1cc(Cl)ccc1Cl|0.998|0.049|0.772|0.005|0.036
 
