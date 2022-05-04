@@ -121,7 +121,7 @@ FC1=CNC(=O)NC1=O
 
 ---
 # **CYP**
-### 1. Data
+## 1. Data
 CYP dataset comes from article *<[iCYP-MFE: Identifying Human Cytochrome P450 Inhibitors Using Multitask Learning and Molecular Fingerprint-Embedded Encoding](https://pubs.acs.org/doi/10.1021/acs.jcim.1c00628)>*
 
 #### 1.1 Single Task
@@ -130,14 +130,14 @@ Data files of single-task are in *<data/CYP_single-task/>*
 #### 1.2 Multi Tasks
 Data files of multi-tasks are in *<data/CYP_multi-tasks/>*
 
-### 2. Model
+## 2. Model
 #### 2.1 Single Task
 The best trained single-task models are in *<model_save/CYP_single-task/>*
 
 #### 2.2 Multi Tasks
 The best trained multi-tasks model is in *<model_save/CYP_multi-tasks/>*
 
-### 3. Prediction with trained models
+## 3. Prediction with trained models
 #### 3.1 Single Task
 For example, to predict new molecules (in *test.csv*) with trained single-task CYP-1a2 model, use the command:
 `python predict.py  --predict_path test.csv  --model_path model_save/CYP_single-task/singletask_cyp1a2.pt  --result_path result_CYP1a2.csv`
