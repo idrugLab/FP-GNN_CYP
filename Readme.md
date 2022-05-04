@@ -80,7 +80,7 @@ E.g.
 
 
 ---
-# **Data**
+# **Data Standard**
 
 We provide the three public benchmark datasets used in our study: *<Data.rar>*
 
