@@ -1,14 +1,13 @@
 # **Environment**
 
 The most important python packages are:
-- python == 3.6.7
-- pytorch == 1.2.0
-- torch == 0.4.1
-- tensorboard == 1.13.1
-- rdkit == 2019.09.3
-- scikit-learn == 0.22.2.post1
-- hyperopt == 0.2.5
-- numpy == 1.18.2
+- python == 3.7.10
+- pytorch == 1.9.0+cu111
+- tensorboard == 2.5.0
+- rdkit == 2021.09.3
+- scikit-learn == 1.0
+- hyperopt == 0.2.7
+- numpy == 1.19.5
 
 For using our model more conveniently, we provide the environment file *<environment.txt>* to install environment directly.
 
